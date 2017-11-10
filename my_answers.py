@@ -13,6 +13,15 @@ def window_transform_series(series, window_size):
     X = []
     y = []
 
+    
+    for i in range(len(series) - window_size):
+        x_temp = []
+        for j in range(window_size):
+            x_temp.append(series[i + j])
+        X.append(x_temp)
+        y.append(series[i+window_size])
+        
+
     # reshape each 
     X = np.asarray(X)
     X.shape = (np.shape(X)[0:2])
